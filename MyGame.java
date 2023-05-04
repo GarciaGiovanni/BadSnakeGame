@@ -1,6 +1,5 @@
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -16,6 +15,8 @@ public class MyGame extends Game  {
     public Snake snake;
     public ArrayList<Position> snakeArray;
     public Apple apple;
+    public int currentX = 0;
+    public int currentY = 0;
 
     public MyGame() {
         snake = new Snake();
@@ -34,6 +35,7 @@ public class MyGame extends Game  {
             apple = null;
             snake.addLength();
         }
+        snake.move(currentX, currentY);
     }
     
     public void draw(Graphics pen) {
@@ -61,10 +63,10 @@ public class MyGame extends Game  {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        if (ke.getKeyCode()==87) {snake.move(0, -1);}
-        if (ke.getKeyCode()==68) {snake.move(1, 0);}
-        if (ke.getKeyCode()==65) {snake.move(-1, 0);}
-        if (ke.getKeyCode()==83) {snake.move(0, 1);}
+        if (ke.getKeyCode()==87) {currentY = -1; currentX = 0;}
+        if (ke.getKeyCode()==68) {currentX = 1; currentY = 0;}
+        if (ke.getKeyCode()==65) {currentX = -1; currentY = 0;}
+        if (ke.getKeyCode()==83) {currentX = 0; currentY = 1;}
 
     }
 
