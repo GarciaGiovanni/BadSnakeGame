@@ -36,17 +36,21 @@ public class Snake
     {
         snake.add(0, new Position(snake.get(head).getX() + xVel * 100, snake.get(head).getY() + yVel * 100));
         snake.remove(snake.get(snake.size()-1));
+        try { Thread.sleep(50); }
+        catch (InterruptedException e) {}
     }
 
-    public void checkForHit()
+    public boolean checkForHit()
     {
         for (int i = 0; i < snake.size(); i++)
         {
-            if (snake.get(head).getX() == snake.get(i).getX() && snake.get(head).getY() == snake.get(i).getY() && i != head) 
+            if (snake.get(head).getX() + 100 >= snake.get(i).getX() && snake.get(head).getY() + 100 >= snake.get(i).getY() && i != head) 
             {
-                System.out.println("Hit");
+                return true;
             }
         }
+
+        return false;
         
     }
 

@@ -1,4 +1,4 @@
-
+import java.awt.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -15,17 +15,19 @@ public class MyGame extends Game  {
     public Snake snake;
     public ArrayList<Position> snakeArray;
     public Apple apple;
+    public Score point;
     public int currentX = 0;
     public int currentY = 0;
 
     public MyGame() {
         snake = new Snake();
         snakeArray = snake.getSnake();
+        point = new Score();
     }
     
     public void update()
     {
-        snake.checkForHit();
+        if (snake.checkForHit()) { System.out.println("Game Over"); return;  }
         if (apple == null)
         {
             apple = new Apple();
@@ -34,6 +36,7 @@ public class MyGame extends Game  {
         {
             apple = null;
             snake.addLength();
+            point.increment();
         }
         snake.move(currentX, currentY);
     }
@@ -51,6 +54,8 @@ public class MyGame extends Game  {
         else{
             apple = null;
         }
+        pen.setFont(new Font ("Serif", Font.BOLD, 50));
+        pen.drawString("Score : " + point.getScore(), 50, 50);
     }
 
     public void draw(Graphics pen, int pos)
@@ -67,7 +72,6 @@ public class MyGame extends Game  {
         if (ke.getKeyCode()==68) {currentX = 1; currentY = 0;}
         if (ke.getKeyCode()==65) {currentX = -1; currentY = 0;}
         if (ke.getKeyCode()==83) {currentX = 0; currentY = 1;}
-
     }
 
     @Override
