@@ -27,7 +27,6 @@ public class MyGame extends Game  {
     
     public void update()
     {
-        if (snake.checkForHit()) { System.out.println("Game Over"); return;  }
         if (apple == null)
         {
             apple = new Apple();
