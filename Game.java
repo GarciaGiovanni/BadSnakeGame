@@ -25,9 +25,10 @@ public abstract class Game implements KeyListener, MouseListener
         frame.setResizable(false);
         frame.setSize(width, height);
         frame.setLocationByPlatform(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        frame.setUndecorated(true);
         frame.setVisible(true);
         frame.setMaximizedBounds(env.getMaximumWindowBounds());
-        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame.addKeyListener(this);
         frame.addMouseListener(this);
         run();

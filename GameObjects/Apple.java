@@ -19,7 +19,6 @@ public class Apple
         int randomY = random.nextInt(20);
         _x = randomX * 100;
         _y = randomY * 100;
-        System.out.println("Hit");
     }
     public int getX()
     {

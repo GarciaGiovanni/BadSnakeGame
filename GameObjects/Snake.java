@@ -42,7 +42,7 @@ public class Snake
 
     public boolean checkForHit()
     {
-        for (int i = 0; i < snake.size(); i++)
+        for (int i = 1; i < snake.size(); i++)
         {
             if (snake.get(head).getX() + 100 >= snake.get(i).getX() && snake.get(head).getY() + 100 >= snake.get(i).getY() && i != head) 
             {
@@ -59,10 +59,10 @@ public class Snake
         snake.add(new Position(snake.get(snake.size()-1).getX(), snake.get(snake.size()-1).getY() + 50));
     }
 
-    public boolean equals(Position o)
-    {
-        return snake.get(head).getX() == o.getX() && snake.get(head).getY() == o.getY(); 
-    }
+    //public boolean equals(Position o)
+    //{
+        //return snake.get(head).getX() == o.getX() && snake.get(head).getY() == o.getY(); 
+    //}
 
 
 }

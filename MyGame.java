@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ import GameObjects.*;
 public class MyGame extends Game  {
     public static final String TITLE = "Bad Snake Gamed";
     public static final int SCREEN_WIDTH = 1900;
-    public static final int SCREEN_HEIGHT = 1050;
+    public static final int SCREEN_HEIGHT = 1080;
 
     public Snake snake;
     public ArrayList<Position> snakeArray;
@@ -36,6 +34,9 @@ public class MyGame extends Game  {
             apple = null;
             snake.addLength();
             point.increment();
+        }
+        if (snake.checkForHit()) {
+            System.out.println("Snake Collides With Something");
         }
         snake.move(currentX, currentY);
     }
